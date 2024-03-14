@@ -6,7 +6,7 @@ import Link from "next/link";
 async function getFeaturedProducts(): Promise<Product[]> {
   const response = await api('/products/featured', {
     next: {
-      revalidate: 60 * 60
+      revalidate: 60 * 60 // 1 hora
     }
   })
 
@@ -50,7 +50,7 @@ export default async function Home() {
           <Link
             key={product.id}
             href={`/products/${product.slug}`}
-            className="group relative col-span-3 row-span-3 rounded-lg bg-zinc-900 overflow-hidden flex justify-center items-end">
+            className="group relative col-span-3 row-span-3 rounded-lg bg-zinc-900 overflow-hidden flex justify-center items-center">
             <Image
               src={product.image}
               width={920}
